@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JobPositionDao extends JpaRepository<JobPosition,Integer> {
+    //nesne ve primary key JpaRepository.
 }
