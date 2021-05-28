@@ -1,7 +1,9 @@
 package kodlama.o.hrms.business.concrete;
 
 import kodlama.o.hrms.business.abstracts.JobPositionService;
-import kodlama.o.hrms.dataaccess.abstracts.JobPositionDao;
+import kodlama.o.hrms.core.utilities.Business.BusinessRules;
+import kodlama.o.hrms.core.utilities.results.*;
+import kodlama.o.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlama.o.hrms.entities.concretes.JobPosition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,27 +16,37 @@ public class JobPositionManager implements JobPositionService {
 
     @Autowired //newlemek için daoya karşılık veren sınıf varsa yerleştir.
     public JobPositionManager(JobPositionDao jobPositionDao) {
+
         this.jobPositionDao = jobPositionDao;
     }
 
     @Override
-    public void add(JobPosition jobPosition) {
-    System.out.println("eklendi");
+    public Result add(JobPosition jobPosition) {
+        Result result= BusinessRules.run(checkJobTitle(jobPosition.getJobTitle()));
+        if (!result.isSuccess()){
+            return result;
+        }
+        jobPositionDao.save(jobPosition);
+        return new SuccessResult("position added");
     }
 
     @Override
-    public void delete(JobPosition jobPosition) {
-        System.out.println("silindi");
+    public Result delete(JobPosition jobPosition) {
+        return new SuccessResult("deleted");
     }
 
     @Override
-    public void update(JobPosition jobPosition) {
-        System.out.println("güncellendi");
-    }
+    public Result update(JobPosition jobPosition) {
+        return new SuccessResult("updated");    }
 
     @Override
-    public List<JobPosition> getAll() {
-
-        return jobPositionDao.findAll();
+    public DataResult<List<JobPosition>> getAll() {
+        return new SuccessDataResult<List<JobPosition>> (this.jobPositionDao.findAll());
+    }
+    private Result checkJobTitle(String jobTitle){
+        if (jobPositionDao.findByjobTitle(jobTitle).isPresent()){//isPresent true ise veritabanında kayıt mevcuttur null değildir.
+            return new ErrorResult("this position already exists");
+        }
+        return new SuccessResult("verified");
     }
 }

@@ -1,25 +1,36 @@
 package kodlama.o.hrms.entities.concretes;
-
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import javax.persistence.*;
+import java.time.LocalDate;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
+@Data
 @Entity
 @Table(name="users")
-@Data
+@Inheritance(strategy = InheritanceType.JOINED)
+@AllArgsConstructor
+@NoArgsConstructor
 public class User {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
 
-    @Column(name = "mail")
-    private String  mail;
+    @Column(name="email")
+    private String email;
 
-    @Column(name = "password")
+    @Column(name="password")
     private String password;
+
+    @Column(name="created_at", columnDefinition = "Date default CURRENT_DATE")
+    private LocalDate createdAt = LocalDate.now();
+
+    @Column(name="is_verified", columnDefinition = "boolean default true")
+    private boolean isVerified = true;
+
+    @Column(name="is_deleted", columnDefinition = "boolean default true")
+    private boolean isDeleted=false;
 
 }

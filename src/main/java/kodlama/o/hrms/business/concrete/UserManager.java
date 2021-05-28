@@ -1,40 +1,31 @@
 package kodlama.o.hrms.business.concrete;
 
 import kodlama.o.hrms.business.abstracts.UserService;
-import kodlama.o.hrms.dataaccess.abstracts.UserDao;
+import kodlama.o.hrms.dataAccess.abstracts.UserDao;
 import kodlama.o.hrms.entities.concretes.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class UserManager implements UserService {
-
     private UserDao userDao;
-
-    @Autowired
+ @Autowired
     public UserManager(UserDao userDao) {
         this.userDao = userDao;
     }
 
     @Override
-    public void add(User user) {
-
+    public User get(int id) {
+        return null;
     }
 
     @Override
-    public void delete(User user) {
-
+    public String add(User user) {
+        return null;
     }
 
     @Override
-    public void update(User user) {
-
-    }
-
-    @Override
-    public List<User> getAll() {
-        return userDao.findAll();
+    public User getByMail(String email) {
+        return null;
     }
 }

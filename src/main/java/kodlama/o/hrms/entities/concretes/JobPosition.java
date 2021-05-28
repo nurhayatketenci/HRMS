@@ -6,20 +6,30 @@ import lombok.Generated;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 
-@Entity
-@Table(name = "job_positions")
 @Data
-@NoArgsConstructor
+@Entity
+@Table(name="job_positions")
 @AllArgsConstructor
+@NoArgsConstructor
 public class JobPosition {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
-    private int  id;
+    @Column(name="id")
+    private int id;
 
+    @Column(name="job_title")
+    private String jobTitle;
 
-    @Column(name = "position")
-    private String position;
+    @Column(name="created_at", columnDefinition = "Date default CURRENT_DATE")
+    private LocalDate createdAt = LocalDate.now();
+
+    @Column(name="is_verified", columnDefinition = "boolean default true")
+    private boolean isVerified = true;
+
+    @Column(name="is_deleted", columnDefinition = "boolean default true")
+    private boolean isDeleted=false;
 
 }
