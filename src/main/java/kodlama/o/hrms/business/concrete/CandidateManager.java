@@ -3,6 +3,7 @@ package kodlama.o.hrms.business.concrete;
 import kodlama.o.hrms.adapters.MernisManager;
 import kodlama.o.hrms.adapters.MernisService;
 import kodlama.o.hrms.business.abstracts.CandidateService;
+import kodlama.o.hrms.business.validationRules.CommonValidatorService;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
 import kodlama.o.hrms.core.utilities.results.*;
 import kodlama.o.hrms.dataAccess.abstracts.CandidateDao;
@@ -16,11 +17,14 @@ import java.util.List;
 @Service
 public class CandidateManager implements CandidateService {
     private CandidateDao candidateDao;
-    private MernisService mernisService = new MernisManager();
+    private MernisService mernisService;
+    private CommonValidatorService commonValidatorService;
 
     @Autowired
-    public CandidateManager(CandidateDao candidateDao) {
+    public CandidateManager(CandidateDao candidateDao, MernisService mernisService, CommonValidatorService commonValidatorService) {
         this.candidateDao = candidateDao;
+        this.mernisService=mernisService;
+        this.commonValidatorService=commonValidatorService;
     }
 
 
