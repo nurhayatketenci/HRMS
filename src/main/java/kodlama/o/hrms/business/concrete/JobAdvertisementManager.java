@@ -53,6 +53,13 @@ public class JobAdvertisementManager implements JobAdvertisementService {
 
     }
 
+    @Override
+    public Result jobPostingClosure(int jobAdvertisementId) {
+        JobAdvertisement jobClosure = this.jobAdvertisementDao.findById(jobAdvertisementId).get();
+        jobClosure.setActive(!jobClosure.isActive());
+        this.jobAdvertisementDao.save(jobClosure);
+        return new SuccessResult("The announcement has been deactivated.");
+    }
 
 
 }

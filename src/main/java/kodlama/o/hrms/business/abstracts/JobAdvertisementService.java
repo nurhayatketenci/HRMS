@@ -14,6 +14,7 @@ public interface JobAdvertisementService {
     DataResult<List<JobAdvertisement>> getByEmployerIdAndIsActiveTrue(int employerId);
     DataResult<List<JobAdvertisement>> getByIsActiveTrue();
     DataResult<List<JobAdvertisement>> getByApplicationDeadlineLessThanEqual(LocalDate date);
+   Result jobPostingClosure(int jobAdvertisementId);
 
 
 

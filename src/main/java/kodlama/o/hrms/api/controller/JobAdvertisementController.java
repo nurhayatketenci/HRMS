@@ -46,7 +46,10 @@ public class JobAdvertisementController {
     DataResult<List<JobAdvertisement>> getByApplicationDeadlineLessThanEqual(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
         return jobAdvertisementService.getByApplicationDeadlineLessThanEqual(date);
     }
-
+    @GetMapping("jobPostingClosure")
+     Result JobAdvertisementClosure(@RequestParam int jobAdvertisementId) {
+        return jobAdvertisementService.jobPostingClosure(jobAdvertisementId);
+    }
 
 
 
