@@ -44,7 +44,7 @@ public class JobPositionManager implements JobPositionService {
         return new SuccessDataResult<List<JobPosition>> (this.jobPositionDao.findAll());
     }
     private Result checkJobTitle(String jobTitle){
-        if (jobPositionDao.findByjobTitle(jobTitle).isPresent()){//isPresent true ise veritabanında kayıt mevcuttur null değildir.
+        if (jobPositionDao.findByjobTitleContainsIgnoreCase(jobTitle).isPresent()){//isPresent true ise veritabanında kayıt mevcuttur null değildir.
             return new ErrorResult("this position already exists");
         }
         return new SuccessResult("verified");

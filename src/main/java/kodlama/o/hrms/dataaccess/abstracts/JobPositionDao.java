@@ -7,5 +7,5 @@ import java.util.Optional;
 
 
 public interface JobPositionDao extends JpaRepository<JobPosition,Integer> {
-    Optional<JobPosition> findByjobTitle (String jobTitle);
+    Optional<JobPosition> findByjobTitleContainsIgnoreCase (String jobTitle);
 }

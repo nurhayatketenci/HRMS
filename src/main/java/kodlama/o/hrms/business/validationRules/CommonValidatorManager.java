@@ -5,12 +5,13 @@ import kodlama.o.hrms.core.utilities.results.ErrorResult;
 import kodlama.o.hrms.core.utilities.results.Result;
 import kodlama.o.hrms.core.utilities.results.SuccessResult;
 import kodlama.o.hrms.entities.concretes.Candidate;
+import kodlama.o.hrms.entities.concretes.Employer;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 
 @Service
-public class CommonValidator implements CommonValidatorService {
+public class CommonValidatorManager implements CommonValidatorService {
     @Override
     public Result freeSpaceCheck(Candidate candidate) {
         if (!Strings.isNullOrEmpty(candidate.getFirstName()) || Strings.isNullOrEmpty(candidate.getLastName()) || Strings.isNullOrEmpty(candidate.getNationalId())
@@ -44,6 +45,14 @@ public class CommonValidator implements CommonValidatorService {
             return new ErrorResult("date must be before today");
         }
         return new SuccessResult("validated date");
+    }
+    @Override
+    public Result checkNullEmployer(Employer employer) {
+        if (employer.getWebsite()==null||employer.getCompanyName()==null||
+                employer.getEmail()==null ||employer.getPhoneNumber()==null){
+            return new ErrorResult("no field can be passed empty");
+        }
+        return new SuccessResult();
     }
 
 

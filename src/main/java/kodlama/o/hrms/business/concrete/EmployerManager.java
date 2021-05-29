@@ -1,6 +1,7 @@
 package kodlama.o.hrms.business.concrete;
 
 import kodlama.o.hrms.business.abstracts.EmployerService;
+import kodlama.o.hrms.business.validationRules.CommonValidatorService;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
 import kodlama.o.hrms.core.utilities.results.*;
 import kodlama.o.hrms.dataAccess.abstracts.EmployerDao;
@@ -13,14 +14,16 @@ import java.util.List;
 @Service
 public class EmployerManager implements EmployerService {
     private EmployerDao employerDao;
+    private CommonValidatorService commonValidatorService;
 
     @Autowired
-    public EmployerManager(EmployerDao employerDao) {
+    public EmployerManager(EmployerDao employerDao,CommonValidatorService commonValidatorService) {
+        this.commonValidatorService=commonValidatorService;
         this.employerDao = employerDao;
     }
     @Override
     public Result add(Employer employer) {
-        Result result= BusinessRules.run(checkNull(employer),checkEmailAndWebAddress(employer));
+        Result result= BusinessRules.run(commonValidatorService.checkNullEmployer(employer),checkEmailAndWebAddress(employer));
         if (!result.isSuccess()){
             return result;
         }
@@ -44,13 +47,7 @@ public class EmployerManager implements EmployerService {
         return new SuccessDataResult<List<Employer>>(employerDao.findAll());
 
     }
-    public Result checkNull(Employer employer) {
-        if (employer.getWebsite()==null||employer.getCompanyName()==null||
-                employer.getEmail()==null ||employer.getPhoneNumber()==null){
-            return new ErrorResult("no field can be passed empty");
-        }
-        return new SuccessResult();
-    }
+
 
     public Result checkEmailAndWebAddress(Employer employer) {
         String[] result=employer.getEmail().split("@",2);
