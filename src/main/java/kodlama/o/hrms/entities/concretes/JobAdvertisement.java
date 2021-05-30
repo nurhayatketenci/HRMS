@@ -19,14 +19,17 @@ public class JobAdvertisement {
     @Column(name = "id")
     private int id;
 
-    @Column(name = "job_position_id")
-    private int jobPositionId;
+    @JoinColumn(name = "job_position_id")
+    @ManyToOne()
+    private JobPosition jobPosition;
 
-    @Column(name = "city_id")
-    private int cityId;
+    @JoinColumn(name = "city_id")
+    @ManyToOne()
+    private City city;
 
-    @Column(name = "employer_id")
-    private int employerId;
+    @JoinColumn(name = "employer_id")
+    @ManyToOne()
+    private Employer employer;
 
     @Column(name = "application_deadline")
     private LocalDate applicationDeadline;
@@ -51,4 +54,6 @@ public class JobAdvertisement {
 
     @Column(name = "is_active",columnDefinition = "boolean default true")
     private boolean isActive=true;
+
+
 }

@@ -32,6 +32,7 @@ public class JobPositionManager implements JobPositionService {
 
     @Override
     public Result delete(JobPosition jobPosition) {
+
         return new SuccessResult("deleted");
     }
 
