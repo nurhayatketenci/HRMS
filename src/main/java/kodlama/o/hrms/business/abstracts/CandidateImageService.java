@@ -1,10 +1,8 @@
 package kodlama.o.hrms.business.abstracts;
 
-import kodlama.o.hrms.core.utilities.results.DataResult;
-import kodlama.o.hrms.core.utilities.results.Result;
+import kodlama.o.hrms.core.utilities.Results.DataResult;
+import kodlama.o.hrms.core.utilities.Results.Result;
 import kodlama.o.hrms.entities.concretes.CandidateImage;
-import kodlama.o.hrms.entities.concretes.Employer;
-import org.apache.james.mime4j.dom.Multipart;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.List;

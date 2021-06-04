@@ -1,17 +1,15 @@
 package kodlama.o.hrms.business.concrete;
 
 import kodlama.o.hrms.business.abstracts.JobAdvertisementService;
-import kodlama.o.hrms.core.utilities.results.DataResult;
-import kodlama.o.hrms.core.utilities.results.Result;
-import kodlama.o.hrms.core.utilities.results.SuccessDataResult;
-import kodlama.o.hrms.core.utilities.results.SuccessResult;
+import kodlama.o.hrms.core.utilities.Results.DataResult;
+import kodlama.o.hrms.core.utilities.Results.Result;
+import kodlama.o.hrms.core.utilities.Results.SuccessDataResult;
+import kodlama.o.hrms.core.utilities.Results.SuccessResult;
 import kodlama.o.hrms.dataAccess.abstracts.JobAdvertisementDao;
-import kodlama.o.hrms.entities.concretes.Employer;
 import kodlama.o.hrms.entities.concretes.JobAdvertisement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.crypto.Data;
 import java.time.LocalDate;
 import java.util.List;
 

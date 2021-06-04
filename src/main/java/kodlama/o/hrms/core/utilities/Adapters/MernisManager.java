@@ -1,7 +1,7 @@
-package kodlama.o.hrms.core.utilities.adapters;
+package kodlama.o.hrms.core.utilities.Adapters;
 
 import kodlama.o.hrms.business.validationRules.CommonValidatorService;
-import kodlama.o.hrms.core.utilities.results.*;
+import kodlama.o.hrms.core.utilities.Results.*;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
 import kodlama.o.hrms.entities.concretes.Candidate;
 import org.springframework.beans.factory.annotation.Autowired;

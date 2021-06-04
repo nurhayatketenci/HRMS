@@ -1,9 +1,6 @@
 package kodlama.o.hrms.api.controller;
 
 import kodlama.o.hrms.business.abstracts.JobAdvertisementService;
-import kodlama.o.hrms.core.utilities.results.DataResult;
-import kodlama.o.hrms.core.utilities.results.Result;
-import kodlama.o.hrms.entities.concretes.Employer;
 import kodlama.o.hrms.entities.concretes.JobAdvertisement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -11,15 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/jobadvertisement/")
-public class JobAdvertisementController {
+public class JobAdvertisementsController {
     private JobAdvertisementService jobAdvertisementService;
 
     @Autowired
-    public JobAdvertisementController(JobAdvertisementService jobAdvertisementService) {
+    public JobAdvertisementsController(JobAdvertisementService jobAdvertisementService) {
         this.jobAdvertisementService = jobAdvertisementService;
     }
     @GetMapping("getall")

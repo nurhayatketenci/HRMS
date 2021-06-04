@@ -3,7 +3,7 @@ package kodlama.o.hrms.business.concrete;
 import kodlama.o.hrms.business.abstracts.EmployerService;
 import kodlama.o.hrms.business.validationRules.CommonValidatorService;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
-import kodlama.o.hrms.core.utilities.results.*;
+import kodlama.o.hrms.core.utilities.Results.*;
 import kodlama.o.hrms.dataAccess.abstracts.EmployerDao;
 import kodlama.o.hrms.entities.concretes.Employer;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -11,11 +11,11 @@ import org.springframework.web.multipart.MultipartFile;
 
 @RestController
 @RequestMapping("/api/candidateimage/")
-public class CandidateImageController {
+public class CandidateImagesController {
     private CandidateImageService candidateImageService;
 
     @Autowired
-    public CandidateImageController(CandidateImageService candidateImageService) {
+    public CandidateImagesController(CandidateImageService candidateImageService) {
         this.candidateImageService = candidateImageService;
     }
 

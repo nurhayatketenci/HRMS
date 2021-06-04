@@ -1,8 +1,8 @@
 package kodlama.o.hrms.business.concrete;
 
 import kodlama.o.hrms.business.abstracts.CityService;
-import kodlama.o.hrms.core.utilities.results.DataResult;
-import kodlama.o.hrms.core.utilities.results.SuccessDataResult;
+import kodlama.o.hrms.core.utilities.Results.DataResult;
+import kodlama.o.hrms.core.utilities.Results.SuccessDataResult;
 import kodlama.o.hrms.dataAccess.abstracts.CityDao;
 import kodlama.o.hrms.entities.concretes.City;
 import org.springframework.beans.factory.annotation.Autowired;

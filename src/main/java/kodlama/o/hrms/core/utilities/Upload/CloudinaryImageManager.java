@@ -2,9 +2,9 @@ package kodlama.o.hrms.core.utilities.Upload;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import kodlama.o.hrms.core.utilities.results.DataResult;
-import kodlama.o.hrms.core.utilities.results.ErrorDataResult;
-import kodlama.o.hrms.core.utilities.results.SuccessDataResult;
+import kodlama.o.hrms.core.utilities.Results.DataResult;
+import kodlama.o.hrms.core.utilities.Results.ErrorDataResult;
+import kodlama.o.hrms.core.utilities.Results.SuccessDataResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;

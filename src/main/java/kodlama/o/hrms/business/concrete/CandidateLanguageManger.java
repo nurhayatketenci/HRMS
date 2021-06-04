@@ -1,10 +1,10 @@
 package kodlama.o.hrms.business.concrete;
 
 import kodlama.o.hrms.business.abstracts.CandidateLanguageService;
-import kodlama.o.hrms.core.utilities.results.DataResult;
-import kodlama.o.hrms.core.utilities.results.Result;
-import kodlama.o.hrms.core.utilities.results.SuccessDataResult;
-import kodlama.o.hrms.core.utilities.results.SuccessResult;
+import kodlama.o.hrms.core.utilities.Results.DataResult;
+import kodlama.o.hrms.core.utilities.Results.Result;
+import kodlama.o.hrms.core.utilities.Results.SuccessDataResult;
+import kodlama.o.hrms.core.utilities.Results.SuccessResult;
 import kodlama.o.hrms.dataAccess.abstracts.CandidateLanguageDao;
 import kodlama.o.hrms.entities.concretes.CandidateLanguage;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -2,7 +2,7 @@ package kodlama.o.hrms.business.concrete;
 
 import kodlama.o.hrms.business.abstracts.JobPositionService;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
-import kodlama.o.hrms.core.utilities.results.*;
+import kodlama.o.hrms.core.utilities.Results.*;
 import kodlama.o.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlama.o.hrms.entities.concretes.JobPosition;
 import org.springframework.beans.factory.annotation.Autowired;

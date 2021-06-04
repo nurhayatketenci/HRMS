@@ -1,11 +1,9 @@
 package kodlama.o.hrms.business.abstracts;
 
-import kodlama.o.hrms.core.utilities.results.DataResult;
-import kodlama.o.hrms.core.utilities.results.Result;
+import kodlama.o.hrms.core.utilities.Results.DataResult;
+import kodlama.o.hrms.core.utilities.Results.Result;
 import kodlama.o.hrms.entities.DTO.CandidateDto;
-import kodlama.o.hrms.entities.DTO.RegisterCandidateDto;
 import kodlama.o.hrms.entities.concretes.Candidate;
-import kodlama.o.hrms.entities.concretes.JobPosition;
 
 import java.util.List;
 

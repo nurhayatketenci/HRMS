@@ -1,4 +1,4 @@
-package kodlama.o.hrms.core.utilities.results;
+package kodlama.o.hrms.core.utilities.Results;
 
 public class ErrorResult extends Result{
 	public ErrorResult() {

@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/candidatejobexperience/")
-public class CandidateJobExperienceController {
+public class CandidateJobExperiencesController {
     private CandidateJobExperienceService candidateJobExperienceService;
 
     @Autowired
-    public CandidateJobExperienceController(CandidateJobExperienceService candidateJobExperienceService) {
+    public CandidateJobExperiencesController(CandidateJobExperienceService candidateJobExperienceService) {
         this.candidateJobExperienceService = candidateJobExperienceService;
     }
 

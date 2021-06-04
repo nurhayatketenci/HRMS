@@ -1,10 +1,10 @@
 package kodlama.o.hrms.business.concrete;
 
-import kodlama.o.hrms.core.utilities.adapters.MernisService;
+import kodlama.o.hrms.core.utilities.Adapters.MernisService;
 import kodlama.o.hrms.business.abstracts.*;
 import kodlama.o.hrms.business.validationRules.CommonValidatorService;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
-import kodlama.o.hrms.core.utilities.results.*;
+import kodlama.o.hrms.core.utilities.Results.*;
 import kodlama.o.hrms.dataAccess.abstracts.CandidateDao;
 import kodlama.o.hrms.entities.DTO.CandidateDto;
 import kodlama.o.hrms.entities.concretes.Candidate;

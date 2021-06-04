@@ -1,6 +1,6 @@
 package kodlama.o.hrms.business.validationRules;
 
-import kodlama.o.hrms.core.utilities.results.Result;
+import kodlama.o.hrms.core.utilities.Results.Result;
 import kodlama.o.hrms.entities.concretes.Candidate;
 import kodlama.o.hrms.entities.concretes.Employer;
 

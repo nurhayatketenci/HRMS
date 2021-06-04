@@ -6,11 +6,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/candidateSchools/")
-public class CandidateSchoolController {
+public class CandidateSchoolsController {
     private CandidateSchoolService candidateSchoolService;
 
     @Autowired
-    public CandidateSchoolController(CandidateSchoolService candidateSchoolService) {
+    public CandidateSchoolsController(CandidateSchoolService candidateSchoolService) {
         this.candidateSchoolService = candidateSchoolService;
     }
     @GetMapping("getall")

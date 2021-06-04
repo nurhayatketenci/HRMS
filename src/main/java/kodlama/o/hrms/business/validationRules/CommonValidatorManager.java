@@ -1,9 +1,9 @@
 package kodlama.o.hrms.business.validationRules;
 
 import com.google.common.base.Strings;
-import kodlama.o.hrms.core.utilities.results.ErrorResult;
-import kodlama.o.hrms.core.utilities.results.Result;
-import kodlama.o.hrms.core.utilities.results.SuccessResult;
+import kodlama.o.hrms.core.utilities.Results.ErrorResult;
+import kodlama.o.hrms.core.utilities.Results.Result;
+import kodlama.o.hrms.core.utilities.Results.SuccessResult;
 import kodlama.o.hrms.entities.concretes.Candidate;
 import kodlama.o.hrms.entities.concretes.Employer;
 import org.springframework.stereotype.Service;
