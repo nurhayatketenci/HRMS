@@ -7,6 +7,7 @@ import kodlama.o.hrms.entities.concretes.Employer;
 import kodlama.o.hrms.entities.concretes.JobAdvertisement;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -22,33 +23,33 @@ public class JobAdvertisementController {
         this.jobAdvertisementService = jobAdvertisementService;
     }
     @GetMapping("getall")
-    DataResult<List<JobAdvertisement>> getAll(){
-        return jobAdvertisementService.getAll();
+    ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(jobAdvertisementService.getAll());
     }
 
     @PostMapping("add")
-    public Result add(@RequestBody JobAdvertisement jobAdvertisement){
+    public ResponseEntity<?> add(@RequestBody JobAdvertisement jobAdvertisement){
 
-        return jobAdvertisementService.add(jobAdvertisement);
+        return ResponseEntity.ok(jobAdvertisementService.add(jobAdvertisement));
     }
 
     @GetMapping("getAllByEmployer")
-    DataResult<List<JobAdvertisement>> getAllByEmployer(@RequestParam int employerId){
-        return jobAdvertisementService.getByEmployerIdAndIsActiveTrue(employerId);
+    ResponseEntity<?> getAllByEmployer(@RequestParam int employerId){
+        return ResponseEntity.ok(jobAdvertisementService.getByEmployerIdAndIsActiveTrue(employerId));
     }
 
     @GetMapping("getByIsActiveTrue")
-    DataResult<List<JobAdvertisement>> getByIsActiveTrue(){
-        return jobAdvertisementService.getByIsActiveTrue();
+    ResponseEntity<?> getByIsActiveTrue(){
+        return ResponseEntity.ok(jobAdvertisementService.getByIsActiveTrue());
     }
 
     @GetMapping("getByApplicationDeadlineLessThanEqual")
-    DataResult<List<JobAdvertisement>> getByApplicationDeadlineLessThanEqual(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
-        return jobAdvertisementService.getByApplicationDeadlineLessThanEqual(date);
+    ResponseEntity<?> getByApplicationDeadlineLessThanEqual(@RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate date){
+        return ResponseEntity.ok(jobAdvertisementService.getByApplicationDeadlineLessThanEqual(date));
     }
     @GetMapping("jobPostingClosure")
-     Result JobAdvertisementClosure(@RequestParam int jobAdvertisementId) {
-        return jobAdvertisementService.jobPostingClosure(jobAdvertisementId);
+     ResponseEntity<?> JobAdvertisementClosure(@RequestParam int jobAdvertisementId) {
+        return ResponseEntity.ok(jobAdvertisementService.jobPostingClosure(jobAdvertisementId));
     }
 
 

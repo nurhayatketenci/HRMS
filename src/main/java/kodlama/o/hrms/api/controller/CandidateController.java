@@ -4,7 +4,6 @@ package kodlama.o.hrms.api.controller;
 import kodlama.o.hrms.business.abstracts.CandidateService;
 import kodlama.o.hrms.core.utilities.results.DataResult;
 import kodlama.o.hrms.core.utilities.results.Result;
-import kodlama.o.hrms.core.utilities.results.SuccessResult;
 import kodlama.o.hrms.entities.concretes.Candidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

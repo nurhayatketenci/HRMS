@@ -1,13 +1,12 @@
 package kodlama.o.hrms.business.concrete;
 
-import kodlama.o.hrms.adapters.MernisManager;
-import kodlama.o.hrms.adapters.MernisService;
-import kodlama.o.hrms.business.abstracts.CandidateService;
+import kodlama.o.hrms.core.utilities.adapters.MernisService;
+import kodlama.o.hrms.business.abstracts.*;
 import kodlama.o.hrms.business.validationRules.CommonValidatorService;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
 import kodlama.o.hrms.core.utilities.results.*;
 import kodlama.o.hrms.dataAccess.abstracts.CandidateDao;
-import kodlama.o.hrms.entities.DTO.RegisterCandidateDto;
+import kodlama.o.hrms.entities.DTO.CandidateDto;
 import kodlama.o.hrms.entities.concretes.Candidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,15 +18,25 @@ public class CandidateManager implements CandidateService {
     private CandidateDao candidateDao;
     private MernisService mernisService;
     private CommonValidatorService commonValidatorService;
+    private CandidateImageService candidateImageService;
+    private CandidateJobExperienceService candidateJobExperienceService;
+    private CandidateProgrammingInformationService candidateProgrammingInformationService;
+    private CandidateLinkService candidateLinkService;
+    private CandidateSchoolService candidateSchoolService;
+    private CandidateLanguageService candidateLanguageService;
 
     @Autowired
-    public CandidateManager(CandidateDao candidateDao, MernisService mernisService, CommonValidatorService commonValidatorService) {
+    public CandidateManager(CandidateDao candidateDao, MernisService mernisService, CommonValidatorService commonValidatorService, CandidateImageService candidateImageService, CandidateJobExperienceService candidateJobExperienceService, CandidateProgrammingInformationService candidateProgrammingInformationService, CandidateLinkService candidateLinkService, CandidateSchoolService candidateSchoolService, CandidateLanguageService candidateLanguageService) {
         this.candidateDao = candidateDao;
-        this.mernisService=mernisService;
-        this.commonValidatorService=commonValidatorService;
+        this.mernisService = mernisService;
+        this.commonValidatorService = commonValidatorService;
+        this.candidateImageService = candidateImageService;
+        this.candidateJobExperienceService = candidateJobExperienceService;
+        this.candidateProgrammingInformationService = candidateProgrammingInformationService;
+        this.candidateLinkService = candidateLinkService;
+        this.candidateSchoolService = candidateSchoolService;
+        this.candidateLanguageService = candidateLanguageService;
     }
-
-
     @Override
     public Result add(Candidate candidate) {
         Result result= BusinessRules.run(mernisService.checkIfRealPerson(candidate),checkNational(candidate.getNationalId()));
@@ -52,6 +61,24 @@ public class CandidateManager implements CandidateService {
     @Override
     public DataResult<List<Candidate>> getAll() {
         return new SuccessDataResult<List<Candidate>>(candidateDao.findAll());
+    }
+
+    @Override
+    public DataResult<Candidate> getById(int id) {
+        return new SuccessDataResult<>(candidateDao.getById(id));
+    }
+
+    @Override
+    public DataResult<CandidateDto> getResumeByCandidateId(int candidateId) {
+       CandidateDto candidateDto=new CandidateDto();
+       candidateDto.setCandidate(this.getById(candidateId).getData());
+       candidateDto.setCandidateImages(candidateImageService.getAllByCandidateId(candidateId).getData());
+       candidateDto.setCandidateLinks(candidateLinkService.getAllByCandidateId(candidateId).getData());
+       candidateDto.setCandidateLanguages(candidateLanguageService.getAllByCandidateId(candidateId).getData());
+       candidateDto.setCandidateSchools(candidateSchoolService.getAllByCandidateIdOrderByEndDate(candidateId).getData());
+       candidateDto.setCandidateJobExperiences(candidateJobExperienceService.getAllByCandidateIdOrderByEndDateDesc(candidateId).getData());
+       candidateDto.setCandidateProgrammingInformations(candidateProgrammingInformationService.getAllByCandidateId(candidateId).getData());
+       return new SuccessDataResult<>(candidateDto);
     }
 
 

@@ -1,4 +1,4 @@
-package kodlama.o.hrms.adapters;
+package kodlama.o.hrms.core.utilities.adapters;
 
 import kodlama.o.hrms.core.utilities.results.Result;
 import kodlama.o.hrms.entities.concretes.Candidate;

@@ -8,6 +8,7 @@ import kodlama.o.hrms.entities.concretes.Candidate;
 import kodlama.o.hrms.entities.concretes.Employer;
 import kodlama.o.hrms.entities.concretes.JobPosition;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.xml.crypto.Data;
@@ -23,14 +24,14 @@ public class EmployerController {
         this.employerService = employerService;
     }
     @GetMapping("getall")
-    DataResult<List<Employer>> getAll(){
+    ResponseEntity<?> getAll(){
 
-     return employerService.getAll();
+     return ResponseEntity.ok(employerService.getAll());
     }
 
     @PostMapping("add")
-    public Result add(@RequestBody Employer employer){
-       return employerService.add(employer);
+    public ResponseEntity<?> add(@RequestBody Employer employer){
+       return ResponseEntity.ok(employerService.add(employer));
     }
 
 }

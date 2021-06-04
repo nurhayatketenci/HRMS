@@ -1,6 +1,5 @@
-package kodlama.o.hrms.adapters;
+package kodlama.o.hrms.core.utilities.adapters;
 
-import com.google.common.base.Strings;
 import kodlama.o.hrms.business.validationRules.CommonValidatorService;
 import kodlama.o.hrms.core.utilities.results.*;
 import kodlama.o.hrms.core.utilities.Business.BusinessRules;
@@ -8,7 +7,6 @@ import kodlama.o.hrms.entities.concretes.Candidate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
 @Service
 public class MernisManager implements MernisService {
 

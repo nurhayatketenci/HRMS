@@ -2,6 +2,7 @@ package kodlama.o.hrms.business.abstracts;
 
 import kodlama.o.hrms.core.utilities.results.DataResult;
 import kodlama.o.hrms.core.utilities.results.Result;
+import kodlama.o.hrms.entities.DTO.CandidateDto;
 import kodlama.o.hrms.entities.DTO.RegisterCandidateDto;
 import kodlama.o.hrms.entities.concretes.Candidate;
 import kodlama.o.hrms.entities.concretes.JobPosition;
@@ -13,5 +14,7 @@ public interface CandidateService {
     Result delete(Candidate candidate);
     Result update(Candidate candidate);
     DataResult<List<Candidate>> getAll();
+    DataResult<Candidate> getById(int id);
+    DataResult<CandidateDto> getResumeByCandidateId(int candidateId);
 
 }
