@@ -6,11 +6,12 @@ import kodlama.o.hrms.core.utilities.results.DataResult;
 import kodlama.o.hrms.core.utilities.results.ErrorDataResult;
 import kodlama.o.hrms.core.utilities.results.SuccessDataResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
 
-
+@Service
 public class CloudinaryImageManager implements CloudinaryImageService {
     private Cloudinary cloudinary;
 
@@ -22,9 +23,10 @@ public class CloudinaryImageManager implements CloudinaryImageService {
     @Override
     public DataResult<Map> save(MultipartFile file) {
         try{
-           Map upload=cloudinary.uploader().upload(file, ObjectUtils.emptyMap());
+           Map upload=cloudinary.uploader().upload(file.getBytes(), ObjectUtils.emptyMap());
             return new SuccessDataResult<Map>(upload);
         }catch (Exception e){
+            e.printStackTrace();
             return new ErrorDataResult<>(e.getMessage());
         }
     }

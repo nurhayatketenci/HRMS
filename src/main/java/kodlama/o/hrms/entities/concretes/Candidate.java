@@ -1,5 +1,6 @@
 package kodlama.o.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,22 +34,27 @@ public class Candidate extends User {
     @Column(name = "description")
     private String description;
 
-
+    @JsonIgnore()
     @OneToMany(mappedBy = "candidate")
     private List<CandidateSchool> candidateSchools;
 
+    @JsonIgnore()
     @OneToMany(mappedBy = "candidate")
     private List<CandidateProgrammingInformation> candidateProgrammingInformations;
 
+    @JsonIgnore()
     @OneToMany(mappedBy = "candidate")
     private List<CandidateLanguage> candidateLanguages;
 
+    @JsonIgnore()
     @OneToMany(mappedBy = "candidate")
     private List<CandidateImage> candidateImages;
 
+    @JsonIgnore()
     @OneToMany(mappedBy = "candidate")
     private List<CandidateJobExperience> candidateJobExperiences;
 
+    @JsonIgnore()
     @OneToMany(mappedBy = "candidate")
     private List<CandidateLink> candidateLinks;
 
