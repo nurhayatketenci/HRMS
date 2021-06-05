@@ -2,9 +2,7 @@ package kodlama.o.hrms.core.utilities.Upload;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
-import kodlama.o.hrms.core.utilities.Results.DataResult;
-import kodlama.o.hrms.core.utilities.Results.ErrorDataResult;
-import kodlama.o.hrms.core.utilities.Results.SuccessDataResult;
+import kodlama.o.hrms.core.utilities.Results.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,4 +28,5 @@ public class CloudinaryImageManager implements CloudinaryImageService {
             return new ErrorDataResult<>(e.getMessage());
         }
     }
+
 }

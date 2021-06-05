@@ -78,7 +78,7 @@ public class CandidateManager implements CandidateService {
        candidateDto.setCandidateSchools(candidateSchoolService.getAllByCandidateIdOrderByEndDate(candidateId).getData());
        candidateDto.setCandidateJobExperiences(candidateJobExperienceService.getAllByCandidateIdOrderByEndDateDesc(candidateId).getData());
        candidateDto.setCandidateProgrammingInformations(candidateProgrammingInformationService.getAllByCandidateId(candidateId).getData());
-       return new SuccessDataResult<>(candidateDto);
+       return new SuccessDataResult<CandidateDto>(candidateDto);
     }
 
 
