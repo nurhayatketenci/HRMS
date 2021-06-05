@@ -29,7 +29,6 @@ public class CandidateLink {
     private LocalDate createdAt = LocalDate.now();
 
     @ManyToOne()
-    @JsonIgnore()
     @JoinColumn(name = "candidate_id")
     private Candidate candidate;
 }

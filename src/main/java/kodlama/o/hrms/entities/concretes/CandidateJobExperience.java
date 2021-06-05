@@ -46,7 +46,6 @@ public class CandidateJobExperience {
 
     //Proje entitysini yüklediğimizde ilişkili olduğu tablonunda yüklenmesini istiyorsak FetchType tipini fetch=FetchType.EAGER olarak belirleriz.
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnore()
     @JoinColumn(name = "candidate_id")
     private Candidate candidate;
 

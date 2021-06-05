@@ -69,7 +69,7 @@ public class CandidateManager implements CandidateService {
     }
 
     @Override
-    public DataResult<CandidateDto> getResumeByCandidateId(int candidateId) {
+    public DataResult<CandidateDto> getCandidateDtoByCandidateId(int candidateId) {
        CandidateDto candidateDto=new CandidateDto();
        candidateDto.setCandidate(this.getById(candidateId).getData());
        candidateDto.setCandidateImages(candidateImageService.getAllByCandidateId(candidateId).getData());

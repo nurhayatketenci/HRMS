@@ -15,6 +15,7 @@ import java.util.List;
 @PrimaryKeyJoinColumn(name="user_id")
 @NoArgsConstructor
 @AllArgsConstructor
+@JsonIgnoreProperties(value = {"handler","hibernateLazyInitializer","candidateJobExperiences","candidateSchools","candidateLanguages","candidateProgrammingInformations","candidateLinks","candidateImages"})
 @Table(name="candidates")
 
 public class Candidate extends User {

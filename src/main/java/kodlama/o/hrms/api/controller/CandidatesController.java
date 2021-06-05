@@ -34,6 +34,6 @@ public class CandidatesController {
 
     @GetMapping("getresumebycandidateid")
     public ResponseEntity<?> getResumeByCandidateId(int candidateId){
-        return ResponseEntity.ok(candidateService.getResumeByCandidateId(candidateId));
+        return ResponseEntity.ok(candidateService.getCandidateDtoByCandidateId(candidateId));
     }
 }

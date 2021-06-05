@@ -2,6 +2,8 @@ package kodlama.o.hrms;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.modelmapper.ModelMapper;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -37,6 +39,11 @@ public class HrmsApplication {
                 "api_key", "462585711862618",
                 "api_secret", "63Tn4jktAOS3M2jf3A6KuuhD7gg"));
     }
+
+    /*@Bean
+    public ObjectMapper objectMapper() {
+        return new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+    }*/
 
 
 }

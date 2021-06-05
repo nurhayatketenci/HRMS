@@ -13,6 +13,6 @@ public interface CandidateService {
     Result update(Candidate candidate);
     DataResult<List<Candidate>> getAll();
     DataResult<Candidate> getById(int id);
-    DataResult<CandidateDto> getResumeByCandidateId(int candidateId);
+    DataResult<CandidateDto> getCandidateDtoByCandidateId(int candidateId);
 
 }
