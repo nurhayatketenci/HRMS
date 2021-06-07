@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/candidateSchools/")
+@CrossOrigin
 public class CandidateSchoolsController {
     private CandidateSchoolService candidateSchoolService;
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/candidatejobexperience/")
+@CrossOrigin
 public class CandidateJobExperiencesController {
     private CandidateJobExperienceService candidateJobExperienceService;
 

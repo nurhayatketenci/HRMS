@@ -11,6 +11,7 @@ import java.time.LocalDate;
 
 @RestController
 @RequestMapping("/api/jobadvertisement/")
+@CrossOrigin
 public class JobAdvertisementsController {
     private JobAdvertisementService jobAdvertisementService;
 

@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/employers/")
+@CrossOrigin
 public class EmployersController {
    private EmployerService employerService;
 
@@ -18,7 +19,6 @@ public class EmployersController {
     }
     @GetMapping("getall")
     ResponseEntity<?> getAll(){
-
      return ResponseEntity.ok(employerService.getAll());
     }
 
