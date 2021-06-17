@@ -1,5 +1,8 @@
 package kodlama.o.hrms.entities.concretes;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +15,7 @@ import java.time.LocalDate;
 @Table(name = "job_advertisements")
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class JobAdvertisement {
 
     @Id
@@ -23,6 +27,7 @@ public class JobAdvertisement {
     @ManyToOne()
     private JobPosition jobPosition;
 
+
     @JoinColumn(name = "city_id")
     @ManyToOne()
     private City city;
@@ -30,6 +35,10 @@ public class JobAdvertisement {
     @JoinColumn(name = "employer_id")
     @ManyToOne()
     private Employer employer;
+
+    @JoinColumn(name = "employment_type")
+    @ManyToOne()
+    private EmploymentType employmentType;
 
     @Column(name = "application_deadline")
     private LocalDate applicationDeadline;
@@ -46,6 +55,9 @@ public class JobAdvertisement {
     @Column(name = "number_of_people")
     private int numberOfPeople;
 
+    @Column(name="is_remote")
+    private Boolean isRemote;
+
     @Column(name="created_at", columnDefinition = "Date default CURRENT_DATE")
     private LocalDate createdAt = LocalDate.now();
 
@@ -54,6 +66,13 @@ public class JobAdvertisement {
 
     @Column(name = "is_active",columnDefinition = "boolean default true")
     private boolean isActive=true;
+
+
+    @OneToOne(mappedBy = "jobAdvertisement",fetch = FetchType.LAZY)
+
+    @JsonManagedReference
+    private JobAdvertisementConfirmation jobAdvertisementConfirmation;
+
 
 
 }
